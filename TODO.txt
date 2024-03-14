@@ -1,0 +1,18 @@
+PRO
+- Cercare shortcodes in meta (per trovare quelli dei page builder)
+
+FREE
+- Quando nel "Trova per shortcode" si cerca per uno shortcode specifico mettere in cima anche il totale di risultati trovati
+
+- Sarebbe comodo nel "Trova per shortcode" avere gli shortcode divisi per plugin/tema/core che li genera (con una combobox con group_opt).
+	- Lo stesso group_opt potrebbe essere selezionabile per poter vedere tutti gli shortcode sul sito di un determinato plugin/tema/core
+
+- In "Trova per shortcode" gli shortcode sono ordinati secondo l'ordine in cui sono stati trovati. Sarebbe più comodo averli ordinati per plugin o per nome dello shortcode
+
+- Trovare il modo di trovare anche gli shortcode che sono implementati solo per il frontend. In realt� non saprei bene come fare...questo plugin ad esempio filtra il codice con il metodo is_admin() (https://wordpress.org/support/topic/unused-plugins-lots-of-false-positive/#post-14350582).
+	Ho testato sul plugin easy-appointments e questo viene dichiarato con add_shortcodes solo per il frontend, quindi dal mio plugin gli utilizzi dei suoi shortcode vengono considerati orfani.
+	Ho provato a lanciare "global $shortcode_tags;" in frontend e backend e nel frontend effettivamente ci sono pi� voci... (non molte).
+	Un modo per farlo potrebbe essere creare una pagina nel frontend all'attivazione del plugin, che mostri i plugin lato frontend, e leggere la lista da quella.
+	
+- Aggiungere hook filtro per poter modificare la query di ricerca su Google
+- Si potrebbe mettere il pulsante per cercare informazioni su Google anche per gli shortcode inutilizzati
