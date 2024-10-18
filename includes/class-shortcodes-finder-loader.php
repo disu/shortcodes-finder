@@ -32,6 +32,15 @@ class Shortcodes_Finder_Loader
     protected $filters;
 
     /**
+     * The array of shortcodes registered with WordPress.
+     *
+     * @since    1.6.0
+     * @access   protected
+     * @var      array    $shortcodes    The shortcodes registered with WordPress.
+     */
+    protected $shortcodes;
+
+    /**
      * Initialize the collections used to maintain the actions and filters.
      *
      * @since    1.0.0

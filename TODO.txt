@@ -1,13 +1,15 @@
-PRO
-- Cercare shortcodes in meta (per trovare quelli dei page builder)
-
-FREE
-- Quando nel "Trova per shortcode" si cerca per uno shortcode specifico mettere in cima anche il totale di risultati trovati
-
 - Sarebbe comodo nel "Trova per shortcode" avere gli shortcode divisi per plugin/tema/core che li genera (con una combobox con group_opt).
 	- Lo stesso group_opt potrebbe essere selezionabile per poter vedere tutti gli shortcode sul sito di un determinato plugin/tema/core
 
 - In "Trova per shortcode" gli shortcode sono ordinati secondo l'ordine in cui sono stati trovati. Sarebbe più comodo averli ordinati per plugin o per nome dello shortcode
+
+- Se ho usato uno shortcode del core WordPress (es. embed), quando clicco sul pulsante per la documentazione di quel plugin non mi va direttamente all'oggetto giusto.	
+	Mi genera il link:
+		https://greencountryexpress.com/wp-admin/tools.php?page=shortcodes_finder&subpage=documentation&object_to_search#embed
+	che però non passa la selezione dell'oggetto (da usare per la ricerca e nel menu a tendina della pagina documentazione)
+	Questo invece è un link giusto di uno shortcode di un plugin:
+		https://greencountryexpress.com/wp-admin/tools.php?page=shortcodes_finder&subpage=documentation&object_to_search=plugin%3Ati-woocommerce-wishlist#ti_wishlistsview
+
 
 - Trovare il modo di trovare anche gli shortcode che sono implementati solo per il frontend. In realt� non saprei bene come fare...questo plugin ad esempio filtra il codice con il metodo is_admin() (https://wordpress.org/support/topic/unused-plugins-lots-of-false-positive/#post-14350582).
 	Ho testato sul plugin easy-appointments e questo viene dichiarato con add_shortcodes solo per il frontend, quindi dal mio plugin gli utilizzi dei suoi shortcode vengono considerati orfani.

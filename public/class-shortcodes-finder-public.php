@@ -101,10 +101,7 @@ class Shortcodes_Finder_Public {
      * @since    1.3.0
      */
     public function disable_unused_shortcodes_handle($content) {
-        /*// Suppress preg_replace_callback notices
-        error_reporting(E_ALL & ~E_NOTICE);
-
-        $pattern = '/'. sf_get_shortcode_unused_regex(false) .'/s';
+        /*$pattern = '/'. sf_get_shortcode_unused_regex(false) .'/s';
         $content = preg_replace_callback($pattern, 'strip_shortcode_tag', $content);*/
 
         return sf_clear_content_from_shortcode_unused($content);

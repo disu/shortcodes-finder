@@ -71,9 +71,12 @@
 
                         accordions_html += '<div class="shortcode_use shortcode_use_status_' + shortcode_use['post']['status'] + '">' +
                            '<p class="shortcode_code">' + shortcode_use['code'] + '</p>' +
-                           '<a href="' + shortcode_use['post']['permalink'] + '">' + shortcode_use['post']['title'] + '</a>' +
-                           '<a href="' + shortcode_use['post']['edit_post_link'] + '">' + img_edit_post + '</a>' +
-                           '</div>';
+                           '<a href="' + shortcode_use['post']['permalink'] + '">' + shortcode_use['post']['title'] + '</a>';
+                        
+                        if (shortcode_use['post']['edit_post_link'] != '')
+                           accordions_html += '<a href="' + shortcode_use['post']['edit_post_link'] + '">' + img_edit_post + '</a>';
+
+                        accordions_html += '</div>';
                      }
 
                      accordions_html += '</div>' +
@@ -95,10 +98,10 @@
          $.post(
             ajax_vars.ajax_url, {
                'action': action,
-               'posts': array_to_pass
+               'posts': array_to_pass,
+               'post_type': ajax_vars.post_type
             },
             function(response) {
-
                if (response === '-1') {
                   console.log('Failed to process routine for these posts: ' + array_to_pass + '.');
                } else {

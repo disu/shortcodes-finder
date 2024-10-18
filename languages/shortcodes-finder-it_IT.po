@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Shortcodes Finder - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-17 10:31+0000\n"
+"PO-Revision-Date: 2024-10-18 09:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,23 +13,23 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-03 16:59+0000\n"
 "Last-Translator: \n"
-"Language-Team: Italiano\n"
-"X-Loco-Version: 2.4.0; wp-5.4.2"
+"Language-Team: Italian\n"
+"X-Loco-Version: 2.6.3; wp-6.6.2"
 
-#: admin/partials/shortcodes-finder-admin-display.php:727
+#: admin/partials/shortcodes-finder-admin-display.php:787
 msgid "18 languages supported."
 msgstr "18 lingue supportate."
 
-#: admin/partials/shortcodes-finder-admin-display.php:57
+#: admin/partials/shortcodes-finder-admin-display.php:62
 msgid "About"
 msgstr "Informazioni"
 
-#: admin/partials/shortcodes-finder-admin-display.php:717
-#: admin/partials/shortcodes-finder-admin-display.php:743
+#: admin/partials/shortcodes-finder-admin-display.php:765
+#: admin/partials/shortcodes-finder-admin-display.php:808
 msgid "Active"
 msgstr "Attivo"
 
-#: admin/partials/shortcodes-finder-admin-display.php:490
+#: admin/partials/shortcodes-finder-admin-display.php:532
 msgid ""
 "All the shortcodes provided by your installed themes and plugins are listed "
 "here. Select one of these and, if expected, insert some options or content "
@@ -38,53 +38,53 @@ msgstr ""
 "Tutti gli shortcode forniti dai tuoi temi e plugin sono elencati qui. "
 "Selezionane uno e, se previsto, inserisci le relative opzioni o contenuti."
 
-#: admin/partials/shortcodes-finder-admin-display.php:913
+#: admin/partials/shortcodes-finder-admin-display.php:995
 msgid "Class"
 msgstr "Classe"
 
-#: admin/partials/shortcodes-finder-admin-display.php:695
+#: admin/partials/shortcodes-finder-admin-display.php:739
 msgid "CONTACT US"
 msgstr "CONTATTACI"
 
-#: admin/partials/shortcodes-finder-admin-display.php:535
+#: admin/partials/shortcodes-finder-admin-display.php:577
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
 
-#: admin/partials/shortcodes-finder-admin-display.php:637
+#: admin/partials/shortcodes-finder-admin-display.php:681
 msgid "Disable existing shortcodes"
 msgstr "Disabilita gli shortcode esistenti"
 
-#: admin/partials/shortcodes-finder-admin-display.php:622
+#: admin/partials/shortcodes-finder-admin-display.php:666
 msgid "Disable unused/orphan shortcodes"
 msgstr "Disabilita gli shortcode inutilizzati/orfani"
 
-#: admin/partials/shortcodes-finder-admin-display.php:599
+#: admin/partials/shortcodes-finder-admin-display.php:643
 msgid "Dismiss this notice."
 msgstr "Ignora questa notifica."
 
-#: admin/partials/shortcodes-finder-admin-display.php:51
+#: admin/partials/shortcodes-finder-admin-display.php:56
 msgid "Documentation"
 msgstr "Documentazione"
 
-#: admin/partials/shortcodes-finder-admin-display.php:688
+#: admin/partials/shortcodes-finder-admin-display.php:732
 msgid "DONATE WITH PAYPAL"
 msgstr "DONA CON PAYPAL"
 
-#: admin/partials/shortcodes-finder-admin-display.php:254
-#: admin/partials/shortcodes-finder-admin-display.php:365
-#: admin/partials/shortcodes-finder-admin-display.php:463
+#: admin/partials/shortcodes-finder-admin-display.php:272
+#: admin/partials/shortcodes-finder-admin-display.php:396
+#: admin/partials/shortcodes-finder-admin-display.php:503
 msgid "Edit content"
 msgstr "Modifica contenuto"
 
-#: admin/partials/shortcodes-finder-admin-display.php:919
+#: admin/partials/shortcodes-finder-admin-display.php:1001
 msgid "Error"
 msgstr "Errore"
 
-#: admin/partials/shortcodes-finder-admin-display.php:105
+#: admin/partials/shortcodes-finder-admin-display.php:111
 msgid "Find all occurrences of each shortcodes in your site."
 msgstr "Trova tutte le occorrenze di ogni shortcode presente nel tuo sito."
 
-#: admin/partials/shortcodes-finder-admin-display.php:277
+#: admin/partials/shortcodes-finder-admin-display.php:296
 msgid ""
 "Find all shortcodes in your site, divided by posts, pages and other custom "
 "types."
@@ -92,21 +92,21 @@ msgstr ""
 "Trova tutti gli shortcode nel tuo sito, divisi per articoli, pagine e altri "
 "contenuti personalizzati."
 
-#: admin/partials/shortcodes-finder-admin-display.php:45
+#: admin/partials/shortcodes-finder-admin-display.php:50
 msgid "Find by Content"
 msgstr "Trova per contenuto"
 
-#: admin/partials/shortcodes-finder-admin-display.php:42
+#: admin/partials/shortcodes-finder-admin-display.php:47
 msgid "Find by Shortcode"
 msgstr "Trova per shortcode"
 
-#: admin/partials/shortcodes-finder-admin-display.php:234
-#: admin/partials/shortcodes-finder-admin-display.php:346
-#: admin/partials/shortcodes-finder-admin-display.php:861
+#: admin/partials/shortcodes-finder-admin-display.php:247
+#: admin/partials/shortcodes-finder-admin-display.php:374
+#: admin/partials/shortcodes-finder-admin-display.php:943
 msgid "Find documentation"
 msgstr "Trova documentazione"
 
-#: admin/partials/shortcodes-finder-admin-display.php:855
+#: admin/partials/shortcodes-finder-admin-display.php:937
 msgid "Find in contents"
 msgstr "Trova nei contenuti"
 
@@ -114,7 +114,7 @@ msgstr "Trova nei contenuti"
 msgid "Find Shortcodes"
 msgstr "Trova shortcode"
 
-#: admin/partials/shortcodes-finder-admin-display.php:387
+#: admin/partials/shortcodes-finder-admin-display.php:419
 msgid ""
 "Find the shortcodes in your site, coming from deleted or deactivated plugins "
 "and themes."
@@ -122,7 +122,7 @@ msgstr ""
 "Trova gli shortcode nel tuo sito derivanti da plugin e temi cancellati o "
 "disattivati."
 
-#: admin/partials/shortcodes-finder-admin-display.php:48
+#: admin/partials/shortcodes-finder-admin-display.php:53
 msgid "Find unused Shortcodes"
 msgstr "Trova gli shortcode inutilizzati"
 
@@ -139,11 +139,11 @@ msgstr ""
 "articoli, pagine e contenuti personalizzati del tuo sito Wordpress (anche in "
 "network multisite)."
 
-#: admin/partials/shortcodes-finder-admin-display.php:916
+#: admin/partials/shortcodes-finder-admin-display.php:998
 msgid "Function"
 msgstr "Funzione"
 
-#: admin/partials/shortcodes-finder-admin-display.php:786
+#: admin/partials/shortcodes-finder-admin-display.php:867
 msgid "Get documentation about shortcodes in your website."
 msgstr "Trova documentazione sugli shortcode del tuo sito."
 
@@ -159,29 +159,29 @@ msgstr ""
 "https://www.scribit.it/en/wordpress-plugins/find-wordpress-website-"
 "shortcodes-in-one-click/"
 
-#: admin/partials/shortcodes-finder-admin-display.php:679
+#: admin/partials/shortcodes-finder-admin-display.php:723
 msgid "If you like our plugin please feel free to give us 5 stars :)"
 msgstr "Se ti piace il nostro plugin sentiti libero di darci 5 stelle :)"
 
-#: admin/partials/shortcodes-finder-admin-display.php:693
+#: admin/partials/shortcodes-finder-admin-display.php:737
 msgid "If you want some information about our Company"
 msgstr "Se vuoi informazioni sulla nostra azienda"
 
-#: admin/partials/shortcodes-finder-admin-display.php:686
+#: admin/partials/shortcodes-finder-admin-display.php:730
 msgid "If you want to help us to improve our service please Donate a coffe"
 msgstr "Se vuoi aiutarci a migliorare i nostri servizi offrici un caffè"
 
-#: admin/partials/shortcodes-finder-admin-display.php:129
-#: admin/partials/shortcodes-finder-admin-display.php:302
-#: admin/partials/shortcodes-finder-admin-display.php:415
+#: admin/partials/shortcodes-finder-admin-display.php:126
+#: admin/partials/shortcodes-finder-admin-display.php:306
+#: admin/partials/shortcodes-finder-admin-display.php:432
 msgid "Include not published contents"
 msgstr "Includi i contenuti non pubblicati"
 
-#: admin/partials/shortcodes-finder-admin-display.php:511
+#: admin/partials/shortcodes-finder-admin-display.php:553
 msgid "Insert content (optional)"
 msgstr "Inserisci il contenuto (facoltativo)"
 
-#: admin/partials/shortcodes-finder-admin-display.php:751
+#: admin/partials/shortcodes-finder-admin-display.php:830
 msgid ""
 "Insert into your WordPress website one or more random contents coming from "
 "your posts. The source contents can be pages, posts or custom post types."
@@ -190,11 +190,11 @@ msgstr ""
 "La sorgente dei contenuti possono essere pagine, articoli o post "
 "personalizzati."
 
-#: admin/partials/shortcodes-finder-admin-display.php:507
+#: admin/partials/shortcodes-finder-admin-display.php:549
 msgid "Insert parameters string (optional)"
 msgstr "Inserisci i parametri (facoltativo)"
 
-#: admin/partials/shortcodes-finder-admin-display.php:726
+#: admin/partials/shortcodes-finder-admin-display.php:786
 msgid ""
 "It gives you the possibility to check the correction of the texts inserted "
 "into posts, pages and drafts in less than a second!"
@@ -202,7 +202,21 @@ msgstr ""
 "Ti permette di controllare la correttezza dei testi inseriti in articoli, "
 "pagine e bozze in meno di un secondo!"
 
-#: admin/partials/shortcodes-finder-admin-display.php:806
+#: admin/partials/shortcodes-finder-admin-display.php:149
+#| msgid ""
+#| "It will look for shortcodes in posts, pages and only custom post types "
+#| "(from plugins, themes or custom code) that are also available in the "
+#| "multisite main site."
+msgid ""
+"It will look for shortcodes in posts, pages and only custom post types and "
+"shortcodes (from plugins, themes or custom code) that are also available in "
+"the multisite main site."
+msgstr ""
+"Controllerà gli shortcode in articoli, pagine e nei tipi di contenuti "
+"personalizzati e shortcode (derivanti da plugin, temi o codice) che sono "
+"disponibili anche per il sito principale del multisite."
+
+#: admin/partials/shortcodes-finder-admin-display.php:875
 msgid ""
 "Load shortcode parameters (may cause errors based on the development of "
 "individual plugins/themes)"
@@ -210,15 +224,15 @@ msgstr ""
 "Carica i parametri degli shortcode (può provocare errori basati sullo "
 "sviluppo dei singoli plugin/temi)"
 
-#: admin/partials/shortcodes-finder-admin-display.php:203
+#: admin/partials/shortcodes-finder-admin-display.php:216
 msgid "No shortcode uses found"
 msgstr "Nessun uso dello shortcode trovato"
 
-#: admin/partials/shortcodes-finder-admin-display.php:782
+#: admin/partials/shortcodes-finder-admin-display.php:863
 msgid "No shortcodes found"
 msgstr "Nessuno shortcode trovato"
 
-#: admin/partials/shortcodes-finder-admin-display.php:808
+#: admin/partials/shortcodes-finder-admin-display.php:877
 msgid ""
 "Note: Parameters are available only for shortcode sources using <i>"
 "shortcode_atts</i> function."
@@ -226,13 +240,13 @@ msgstr ""
 "Nota: I parametri sono disponibili solo per sorgenti di shortcode che usano "
 "la funzione <i>shortcode_atts</i>."
 
-#: admin/partials/shortcodes-finder-admin-display.php:389
+#: admin/partials/shortcodes-finder-admin-display.php:421
 msgid "Note: Results may be incomplete or may contain false positives."
 msgstr ""
 "Attenzione: I risultati potrebbero essere incompleti o contenere falsi "
 "positivi."
 
-#: admin/partials/shortcodes-finder-admin-display.php:107
+#: admin/partials/shortcodes-finder-admin-display.php:113
 msgid ""
 "Note: The process may be slow if you search all shortcodes in a website with "
 "a lot of contents."
@@ -240,16 +254,16 @@ msgstr ""
 "Attenzione: La ricerca potrebbe essere lenta se si cercano tutti gli "
 "shortcode in un sito web con molti contenuti."
 
-#: includes/shortcodes-finder-utils.php:281
+#: includes/shortcodes-finder-utils.php:288
 msgid "Plugin"
 msgstr "Plugin"
 
-#: admin/partials/shortcodes-finder-admin-display.php:312
-#: admin/partials/shortcodes-finder-admin-display.php:425
+#: admin/partials/shortcodes-finder-admin-display.php:338
+#: admin/partials/shortcodes-finder-admin-display.php:463
 msgid "Progress"
 msgstr "Avanzamento"
 
-#: admin/partials/shortcodes-finder-admin-display.php:725
+#: admin/partials/shortcodes-finder-admin-display.php:785
 msgid ""
 "Proofreading plugin allows you to improve the quality of your posts, pages "
 "and all your WordPress website."
@@ -257,22 +271,22 @@ msgstr ""
 "Il plugin Proofreading ti permette di migliorare la qualità dei tuoi "
 "articoli di pagine e di tutto il tuo sito WordPress."
 
-#: admin/partials/shortcodes-finder-admin-display.php:627
+#: admin/partials/shortcodes-finder-admin-display.php:671
 msgid ""
 "Remove shortcode tags coming from deleted or deactivated plugins and themes."
 msgstr ""
 "Rimuove i tag degli shortcode che provengono da plugin e temi disabilitati o "
 "disattivati."
 
-#: admin/partials/shortcodes-finder-admin-display.php:642
+#: admin/partials/shortcodes-finder-admin-display.php:686
 msgid "Remove tags and contents from selected shortcodes."
 msgstr "Rimuove tag e contenuti dagli shortcode selezionati."
 
-#: admin/partials/shortcodes-finder-admin-display.php:662
+#: admin/partials/shortcodes-finder-admin-display.php:706
 msgid "Save settings"
 msgstr "Salva le impostazioni"
 
-#: admin/partials/shortcodes-finder-admin-display.php:597
+#: admin/partials/shortcodes-finder-admin-display.php:641
 msgid "Saving Error."
 msgstr "Errore nel salvataggio."
 
@@ -280,55 +294,52 @@ msgstr "Errore nel salvataggio."
 msgid "Scribit"
 msgstr "Scribit"
 
-#: admin/partials/shortcodes-finder-admin-display.php:285
+#: admin/partials/shortcodes-finder-admin-display.php:314
+#: admin/partials/shortcodes-finder-admin-display.php:440
 msgid "Search shortcodes into:"
 msgstr "Cerca shortcode in:"
 
-#: admin/partials/shortcodes-finder-admin-display.php:155
+#: admin/partials/shortcodes-finder-admin-display.php:154
 msgid "Search the whole multisite network"
 msgstr "Cerca in tutto il network multisite"
 
-#: admin/partials/shortcodes-finder-admin-display.php:398
-msgid "Search unused shortcodes into:"
-msgstr "Cerca shortcode inutilizzati in:"
-
-#: admin/partials/shortcodes-finder-admin-display.php:498
+#: admin/partials/shortcodes-finder-admin-display.php:540
 msgid "Select a Shortcode"
 msgstr "Seleziona uno shortcode"
 
-#: admin/partials/shortcodes-finder-admin-display.php:793
+#: admin/partials/shortcodes-finder-admin-display.php:882
 msgid "Select shortcode origin:"
 msgstr "Seleziona l'origine dello shortcode:"
 
-#: admin/partials/shortcodes-finder-admin-display.php:54
-#: admin/partials/shortcodes-finder-admin-display.php:611
+#: admin/partials/shortcodes-finder-admin-display.php:59
+#: admin/partials/shortcodes-finder-admin-display.php:655
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: admin/partials/shortcodes-finder-admin-display.php:597
+#: admin/partials/shortcodes-finder-admin-display.php:641
 msgid "Settings saved."
 msgstr "Impostazioni salvate."
 
-#: admin/partials/shortcodes-finder-admin-display.php:523
+#: admin/partials/shortcodes-finder-admin-display.php:565
 msgid "Shortcode code"
 msgstr "Codice shortcode"
 
-#: admin/partials/shortcodes-finder-admin-display.php:525
+#: admin/partials/shortcodes-finder-admin-display.php:567
 msgid "Shortcode copied to clipboard"
 msgstr "Shortcode copiato negli appunti"
 
-#: admin/partials/shortcodes-finder-admin-display.php:118
+#: admin/partials/shortcodes-finder-admin-display.php:163
 msgid "Shortcode to search:"
 msgstr "Shortcode da cercare:"
 
-#: admin/partials/shortcodes-finder-admin-display.php:212
+#: admin/partials/shortcodes-finder-admin-display.php:225
 msgid "Shortcode uses found"
 msgstr "Usi dello shortcode trovati"
 
 #. Name of the plugin
-#: admin/class-shortcodes-finder-admin.php:132
-#: admin/class-shortcodes-finder-admin.php:133
-#: admin/partials/shortcodes-finder-admin-display.php:37
+#: admin/class-shortcodes-finder-admin.php:120
+#: admin/class-shortcodes-finder-admin.php:121
+#: admin/partials/shortcodes-finder-admin-display.php:42
 msgid "Shortcodes Finder"
 msgstr "Shortcodes Finder"
 
@@ -336,56 +347,57 @@ msgstr "Shortcodes Finder"
 msgid "Shortcodes Finder is powered by"
 msgstr "Shortcodes Finder è sviluppato da"
 
-#: admin/partials/shortcodes-finder-admin-display.php:819
+#: admin/partials/shortcodes-finder-admin-display.php:901
 msgid "Shortcodes found:"
 msgstr "Shortcode trovati:"
 
-#: admin/partials/shortcodes-finder-admin-display.php:209
+#: admin/partials/shortcodes-finder-admin-display.php:222
 msgid "Shortcodes uses found"
 msgstr "Usi degli shortcode trovati"
 
-#: admin/partials/shortcodes-finder-admin-display.php:868
+#: admin/partials/shortcodes-finder-admin-display.php:950
 msgid "Source file"
 msgstr "File sorgente"
 
-#: admin/partials/shortcodes-finder-admin-display.php:516
+#: admin/partials/shortcodes-finder-admin-display.php:558
 msgid "Test it"
 msgstr "Provalo"
 
-#: admin/partials/shortcodes-finder-admin-display.php:539
+#: admin/partials/shortcodes-finder-admin-display.php:581
 msgid "Test result"
 msgstr "Risultati del test"
 
-#: admin/partials/shortcodes-finder-admin-display.php:242
-#: admin/partials/shortcodes-finder-admin-display.php:354
-#: admin/partials/shortcodes-finder-admin-display.php:858
+#: admin/partials/shortcodes-finder-admin-display.php:255
+#: admin/partials/shortcodes-finder-admin-display.php:382
+#: admin/partials/shortcodes-finder-admin-display.php:940
 msgid "Test Shortcode"
 msgstr "Testa lo shortcode"
 
-#: admin/partials/shortcodes-finder-admin-display.php:150
+#: admin/partials/shortcodes-finder-admin-display.php:148
 msgid "The plugin will search in all multisite network contents."
 msgstr "Il plugin cercherà in tutti i contenuti del network multisite."
 
-#: admin/partials/shortcodes-finder-admin-display.php:131
-#: admin/partials/shortcodes-finder-admin-display.php:304
-#: admin/partials/shortcodes-finder-admin-display.php:417
+#: admin/partials/shortcodes-finder-admin-display.php:128
+#: admin/partials/shortcodes-finder-admin-display.php:308
+#: admin/partials/shortcodes-finder-admin-display.php:434
 msgid "The plugin will search in drafts, future, pending and private contents."
 msgstr ""
 "Il plugin cercherà nelle bozze e nei contenuti pianificati, in attesa e "
 "privati."
 
-#: includes/shortcodes-finder-utils.php:291
+#: includes/shortcodes-finder-utils.php:298
 msgid "Theme"
 msgstr "Tema"
 
-#: admin/partials/shortcodes-finder-admin-display.php:140
+#: admin/partials/shortcodes-finder-admin-display.php:137
 msgid ""
 "To enable multisite network search plugin should be actived on the network."
 msgstr ""
 "Per abilitare la ricerca nel network multisite il plugin dev'essere attivo "
 "sul network."
 
-#: admin/partials/shortcodes-finder-admin-display.php:144
+#. link to Shortcodes Finder page on WordPress dashboard
+#: admin/partials/shortcodes-finder-admin-display.php:142
 #, php-format
 msgid ""
 "To search in all the network go in the <a href=\"%s\">main site Shortcodes "
@@ -394,23 +406,23 @@ msgstr ""
 "Per cercare in tutto il network vai alla <a href=\"%s\">pagina di Shortcode "
 "Finder del sito principale</a>."
 
-#: admin/partials/shortcodes-finder-admin-display.php:702
+#: admin/partials/shortcodes-finder-admin-display.php:746
 msgid "Try other Scribit plugins:"
 msgstr "Prova gli altri plugin di Scribit:"
 
-#: includes/shortcodes-finder-utils.php:304
+#: includes/shortcodes-finder-utils.php:311
 msgid "WordPress: Admin"
 msgstr "WordPress: Admin"
 
-#: includes/shortcodes-finder-utils.php:298
+#: includes/shortcodes-finder-utils.php:305
 msgid "WordPress: Front-end"
 msgstr "WordPress: Front-end"
 
-#: admin/partials/shortcodes-finder-admin-display.php:681
+#: admin/partials/shortcodes-finder-admin-display.php:725
 msgid "WRITE A PLUGIN REVIEW"
 msgstr "SCRIVI UNA RECENSIONE DEL PLUGIN"
 
-#: admin/partials/shortcodes-finder-admin-display.php:752
+#: admin/partials/shortcodes-finder-admin-display.php:831
 msgid ""
 "You can display different informations:<ul>\n"
 "\t\t\t\t\t\t   <li>A list of post titles</li>\n"

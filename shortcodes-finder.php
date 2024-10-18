@@ -15,7 +15,7 @@
  * Plugin Name:       Shortcodes Finder
  * Plugin URI:        https://www.scribit.it/en/wordpress-plugins/find-wordpress-website-shortcodes-in-one-click/
  * Description:       Find, test, disable, clean and get informations about the shortcodes in your Wordpress website posts, pages and custom contents (also in multisite network).
- * Version:           1.5.6
+ * Version:           1.6.0
  * Author:            Scribit
  * Author URI:        https://www.scribit.it/
  * License:           GPL-2.0+

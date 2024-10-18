@@ -144,7 +144,7 @@ class ShortcodeFinder
       $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
       $this->loader->add_action('admin_menu', $plugin_admin, 'management_page');
-		$this->loader->add_action('admin_init', $plugin_admin, 'load_plugin');
+	  $this->loader->add_action('admin_init', $plugin_admin, 'load_plugin');
 
       // Ajax requests
       $this->loader->add_action('wp_ajax_shortcodes_finder_content_search_process', $plugin_admin, 'ajax_sf_content_search_process');
@@ -180,6 +180,7 @@ class ShortcodeFinder
 
         $disable_unused = get_option(SHORTCODES_FINDER_OPTION_DISABLE_UNUSED, false);
         if ($disable_unused) {
+            // the_content filter call may not work with page builder like Divi themes
             $this->loader->add_filter('the_content', $plugin_public, 'disable_unused_shortcodes_handle');
         }
     }

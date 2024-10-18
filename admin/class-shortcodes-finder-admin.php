@@ -89,17 +89,17 @@ class Shortcodes_Finder_Admin
 
 					$post_type = esc_attr($_POST['search_into_content']);
 					$include_not_published = (isset($_POST['include_not_published']) && (esc_attr($_POST['include_not_published']) == 'on'));
-                
 					$posts = sf_get_posts_ids($post_type, $include_not_published);	// Pass the post type
 
 					wp_localize_script(
 						$this->plugin_name,
 						'ajax_vars',
 						array(
-							'ajax_url' => admin_url('admin-ajax.php'),
-							'action' => $_POST['subpage'],
-							'posts' => $posts
-						)
+                            'ajax_url' => admin_url('admin-ajax.php'),
+                            'action' => $_POST['subpage'],
+                            'posts' => $posts,
+                            'post_type' => $post_type   // Mandatory for custom post types
+                        )
 					);
 				}
 			}
@@ -137,7 +137,8 @@ class Shortcodes_Finder_Admin
 		// See Wordpress tip: https://developer.wordpress.org/reference/functions/register_activation_hook/
 		if ( is_admin() && get_option( 'activated_plugin' ) == SHORTCODES_FINDER_PLUGIN_SLUG ) {
 			delete_option( 'activated_plugin' );
-			exit( wp_redirect( esc_url( admin_url( 'tools.php?page='. SHORTCODES_FINDER_PLUGIN_SLUG ) ) ) );
+			wp_redirect( esc_url( admin_url( 'tools.php?page='. SHORTCODES_FINDER_PLUGIN_SLUG ) ) );
+            exit();
 		}
 	}
 
@@ -153,11 +154,13 @@ class Shortcodes_Finder_Admin
 
         $args = array(
             'posts_per_page' => -1,
-            'post_type' => 'any',
+            //'post_type' => 'any',
+            'post_type' => $_POST['post_type'],     // For custom post types I have to specify exact slug to retrieve with get_posts function. 
+                                                    // If set to "any" the post with custom type will not be retrieved.
             'post_status' => 'any',
             'orderby' => 'date',
             'order' => 'DESC',
-            'post__in' => $_POST['posts']
+            'post__in' => $_POST['posts'],
         );
         $posts = get_posts($args);
 
@@ -178,7 +181,9 @@ class Shortcodes_Finder_Admin
 
         $args = array(
             'posts_per_page' => -1,
-            'post_type' => 'any',
+            //'post_type' => 'any',
+            'post_type' => $_POST['post_type'],     // For custom post types I have to specify exact slug to retrieve with get_posts function. 
+                                                    // If set to "any" the post with custom type will not be retrieved.
             'post_status' => 'any',
             'orderby' => 'date',
             'order' => 'DESC',

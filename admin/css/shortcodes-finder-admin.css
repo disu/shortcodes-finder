@@ -13,6 +13,11 @@
 
 .shortcodes-finder-tab-content .button {
    vertical-align: middle !important;
+   margin: 5px 0;
+}
+
+.shortcodes-finder-tab-content .button.active {
+   font-weight: 600;
 }
 
 .shortcodes-finder-title {
@@ -56,6 +61,7 @@
 
 .shortcodes-finder-tab-content .form-table td fieldset label {
    padding-left: 5px;
+   line-break: anywhere;
 }
 
 @media screen and (min-width: 783px) {
@@ -310,7 +316,7 @@ td.shortcodes-finder-tooltip:hover {
 }
 
 .shortcodes-finder-tooltip .tooltiptext.minwidth {
-   min-width: 300px;
+   min-width: 350px;
    white-space: inherit;
 }
 
@@ -337,7 +343,7 @@ td.shortcodes-finder-tooltip:hover {
    padding: 0;
    margin-top: .7em;
    border-radius: 1px;
-   border: 1px solid #7e8993;
+   border: 1px solid #AAA;
    background-color: #FFF;
 }
 
@@ -349,8 +355,10 @@ td.shortcodes-finder-tooltip:hover {
    /* #4FAFD1 */
    width: 0%;
    background-image: linear-gradient(45deg,
-         rgba(79, 175, 206, 0.2) 0%, rgba(79, 175, 206, 0.6) 40%,
-         rgba(79, 175, 206, 0.2) 70%, rgba(79, 175, 206, 0.6) 100%);
+      rgb(187 240 186 / 20%) 0%,
+      rgb(92 206 79 / 60%) 40%,
+      rgb(187 240 186 / 20%) 70%,
+      rgb(92 206 79 / 60%) 100%)
 }
 
 .shortcodes-finder-progress .progress-label {

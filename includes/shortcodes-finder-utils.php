@@ -200,7 +200,7 @@ function sf_get_shortcodes_unused_by_post($posts) {
 
     foreach ($posts as $post) {
         if (preg_match_all($pattern, remove_html_comments($post->post_content), $matches) && array_key_exists(2, $matches)) {
-            foreach ($matches[0] as $key => $value) {
+			foreach ($matches[0] as $key => $value) {
                 $shortcode = array();
 
                 // replace space with '&' for parse_str() function
@@ -443,7 +443,11 @@ function sf_shortcode_attributes_processor( $shortcode ) {
 	ob_start();
 
 	// Process shortcode which will trigger the attribute filter
-	$out = do_shortcode( '[' . $shortcode . ']' );
+	try {
+		$out = @do_shortcode( '[' . $shortcode . ']' );
+	}
+	catch (TypeError $te) {}
+	catch (Exception $e) {}
 
 	ob_end_clean();
 
@@ -502,38 +506,38 @@ function sf_get_shortcode_unused_regex() {
     global $shortcode_tags;
 
     $tagnames = array_keys($shortcode_tags);
-    $tagregexp = join('|', array_map('preg_quote', $tagnames));
+    $tagregexp = join('|', array_map('preg_quote', $tagnames)) .'|';
 
-    $regex = "\["                              // Opening bracket
-        . "(\[?)"                           // 1: Optional second opening bracket for escaping shortcodes: [[tag]]
-
-        . "(?!\/)"                 // SCRIBIT: Not starting with slash
-
-        . "(?!$tagregexp$)"                     // 2: Shortcode name different from registered shortcodes
-        . "("                                // 3: Unroll the loop: Inside the opening shortcode tag
-        .     "[^\]\/]*"                   // Not a closing bracket or forward slash
-        .     "(?:"
-        .         "\/(?!\])"               // A forward slash not followed by a closing bracket
-        .         "[^\]\/]*"               // Not a closing bracket or forward slash
-        .     ")*?"
-        . ")"
-        . "(?:"
-        .     "(\/)"                        // 4: Self closing tag ...
-        .     "\]"                          // ... and closing bracket
-        . "|"
-        .     "\]"                          // Closing bracket
-        .     "(?:"
-        .         "("                        // 5: Unroll the loop: Optionally, anything between the opening and closing shortcode tags
-        .             "[^\[]*+"             // Not an opening bracket
-        .             "(?:"
-        .                 "\[(?!\/\2\])" // An opening bracket not followed by the closing shortcode tag
-        .                 "[^\[]*+"         // Not an opening bracket
-        .             ")*+"
-        .         ")"
-        .         "\[\/\2\]"             // Closing shortcode tag
-        .     ")?"
-        . ")"
-        . "(\]?)";
+	$regex = '\['                             // Opening bracket.
+		. '(\[?)'                           // 1: Optional second opening bracket for escaping shortcodes: [[tag]].
+		. "(?!$tagregexp$)"                     // 2: Shortcode name different from registered shortcodes.
+		//. '([\w-])'                       // Not followed by word character or hyphen.
+		. '([a-zA-Z0-9_]+)'                 // Scribit: Made of characters, numbers and underscores...
+		. '(?![^\s\]]+)'					// Scribit: ...and no other invalid characters in shortcode name
+		. '('                                // 3: Unroll the loop: Inside the opening shortcode tag.
+		.     '[^\]\/]*'                   // Not a closing bracket or forward slash.
+		.     '(?:'
+		.         '\/(?!\])'               // A forward slash not followed by a closing bracket.
+		.         '[^\]\/]*'               // Not a closing bracket or forward slash.
+		.     ')*?'
+		. ')'
+		. '(?:'
+		.     '(\/)'                        // 4: Self closing tag...
+		.     '\]'                          // ...and closing bracket.
+		. '|'
+		.     '\]'                          // Closing bracket.
+		.     '(?:'
+		.         '('                        // 5: Unroll the loop: Optionally, anything between the opening and closing shortcode tags.
+		.             '[^\[]*+'             // Not an opening bracket.
+		.             '(?:'
+		.                 '\[(?!\/\2\])' // An opening bracket not followed by the closing shortcode tag.
+		.                 '[^\[]*+'         // Not an opening bracket.
+		.             ')*+'
+		.         ')'
+		.         '\[\/\2\]'             // Closing shortcode tag.
+		.     ')?'
+		. ')'
+		. '(\]?)';                          // 6: Optional second closing bracket for escaping shortcodes: [[tag]].
 
     return $regex;
 }
