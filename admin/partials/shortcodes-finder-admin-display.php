@@ -370,7 +370,7 @@ function sf_print_contents_shortcodes($posts) {
 					<?php foreach ($shortcode_uses as $shortcode_use) : ?>
 						<div class="shortcode_use shortcode_use_status_<?php echo esc_attr($shortcode_use['post']['status']) ?>">
 							<span class="shortcode_use_buttons float_right">
-								<a href="tools.php?page=<?php echo esc_attr(SHORTCODES_FINDER_PLUGIN_SLUG) ?>&subpage=documentation&object_to_search=<?php echo esc_attr($all_shortcodes[$shortcode_use['name']]['tag']) ?>#<?php echo esc_attr(esc_attr($shortcode_use['name'])) ?>">
+								<a href="tools.php?page=<?php echo esc_attr(SHORTCODES_FINDER_PLUGIN_SLUG) ?>&subpage=documentation&object_to_search=<?php echo esc_attr($all_shortcodes[$shortcode_use['name']]['tag']) ?>#<?php echo esc_attr($shortcode_use['name']) ?>">
 									<span title="<?php echo esc_html__('Find documentation', 'shortcodes-finder') ?>" class="dashicons dashicons-media-document" aria-hidden="true"></span>
 								</a>
 								<a target="_blank" href="<?php
