@@ -13,7 +13,6 @@
 
 .shortcodes-finder-tab-content .button {
    vertical-align: middle !important;
-   margin: 5px 0;
 }
 
 .shortcodes-finder-tab-content .button.active {
@@ -258,10 +257,6 @@ p.shortcode_code {
    column-width: 250px;
 }
 
-#shortcodes_finder_about_support {
-   margin: 1em 0 0 2em;
-}
-
 /** Tooltip **/
 .shortcodes-finder-tooltip {
    display: inline-block;
@@ -395,14 +390,14 @@ td.shortcodes-finder-tooltip:hover {
    margin-bottom: 0;
 }
 
+.scribit_plugins .plugin-card .desc>ul {
+   margin-left: 148px;
+   margin-top: 0;
+}
+
 .scribit_support_description {
    text-align: right;
    padding-right: 1em;
-}
-
-.shortcodes-finder-tab-content .scribit_support_button {
-   line-height: 1.8;
-   min-height: auto;
 }
 
 /*** Media query ***/

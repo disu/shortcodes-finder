@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Define the internationalization functionality.
  *
@@ -10,20 +11,22 @@
  * @subpackage shortcodes-finder/includes
  * @author     Scribit <wordpress@scribit.it>
  */
-class Shortcodes_Finder_i18n {
+class Shortcodes_Finder_i18n
+{
 
 
 	/**
 	 * Load the plugin text domain for translation.
+	 * 
+	 * Removed since 1.6.2 according to PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound Plugin-check warning
 	 *
 	 * @since    1.0.0
 	 */
-	public function load_plugin_textdomain() {
+	/*public function load_plugin_textdomain() {
 		load_plugin_textdomain(
 			'shortcodes-finder',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
-	}
-	
+	}*/
 }

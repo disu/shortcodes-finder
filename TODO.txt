@@ -1,3 +1,6 @@
+- Mettere funzione per disabilitare solo alcuni shortcode orfani
+	Es. https://wordpress.org/support/topic/canfin-unused-shortcodes-gets-stuck/#post-18500805 - L'utente voleva togliere ogni riferimento a [vc_row] di visual composer, ma non agli altri orfani trovati, che in alcuni casi erano 
+
 - Sarebbe comodo nel "Trova per shortcode" avere gli shortcode divisi per plugin/tema/core che li genera (con una combobox con group_opt).
 	- Lo stesso group_opt potrebbe essere selezionabile per poter vedere tutti gli shortcode sul sito di un determinato plugin/tema/core
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The plugin bootstrap file
  *
@@ -15,7 +16,7 @@
  * Plugin Name:       Shortcodes Finder
  * Plugin URI:        https://www.scribit.it/en/wordpress-plugins/find-wordpress-website-shortcodes-in-one-click/
  * Description:       Find, test, disable, clean and get informations about the shortcodes in your Wordpress website posts, pages and custom contents (also in multisite network).
- * Version:           1.6.0
+ * Version:           1.6.2
  * Author:            Scribit
  * Author URI:        https://www.scribit.it/
  * License:           GPL-2.0+
@@ -34,8 +35,10 @@ require_once plugin_dir_path(__FILE__) . 'shortcodes-finder-consts.php';
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-shortcodes-finder-activator.php
+ *
+ * @since    1.6.2
  */
-function activate_shortcodes_finder()
+function shortcodes_finder_activate()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/class-shortcodes-finder-activator.php';
     Shortcodes_Finder_Activator::activate();
@@ -44,15 +47,17 @@ function activate_shortcodes_finder()
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-shortcodes-finder-deactivator.php
+ *
+ * @since    1.6.2
  */
-function deactivate_shortcodes_finder()
+function shortcodes_finder_deactivate()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/class-shortcodes-finder-deactivator.php';
     Shortcodes_Finder_Deactivator::deactivate();
 }
 
-register_activation_hook(__FILE__, 'activate_shortcodes_finder');
-register_deactivation_hook(__FILE__, 'deactivate_shortcodes_finder');
+register_activation_hook(__FILE__, 'shortcodes_finder_activate');
+register_deactivation_hook(__FILE__, 'shortcodes_finder_deactivate');
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -67,22 +72,22 @@ require plugin_dir_path(__FILE__) . 'includes/class-shortcodes-finder.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since    1.6.2
  */
-function run_shortcodes_finder()
+function shortcodes_finder_run()
 {
     $plugin = new ShortcodeFinder();
     $plugin->run();
 }
-run_shortcodes_finder();
+shortcodes_finder_run();
 
 function shortcodes_finder_actions_links($links)
 {
-    $settings_link = '<a href="tools.php?page='. SHORTCODES_FINDER_PLUGIN_SLUG .'"><span style="color:#C60;font-weight:bold">' . __('Find Shortcodes', 'shortcodes-finder') . '</span></a>';
+    $settings_link = '<a href="tools.php?page=' . SHORTCODES_FINDER_PLUGIN_SLUG . '"><span style="color:#C60;font-weight:bold">' . __('Find Shortcodes', 'shortcodes-finder') . '</span></a>';
     array_unshift($links, $settings_link);
     return $links;
 }
-add_filter('plugin_action_links_'. plugin_basename(__FILE__), 'shortcodes_finder_actions_links');
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'shortcodes_finder_actions_links');
 
 function shortcodes_finder_footer_text()
 {
@@ -92,6 +97,6 @@ function shortcodes_finder_footer_text()
     }
 
     $url = 'https://www.scribit.it';
-    echo '<span class="scribit_credit">'.sprintf('%s <a href="%s" target="_blank">Scribit</a>', esc_html(__('Shortcodes Finder is powered by', 'shortcodes-finder')), esc_url($url)).'</span>';
+    echo '<span class="scribit_credit">' . sprintf('%s <a href="%s" target="_blank">Scribit</a>', esc_html(__('Shortcodes Finder is powered by', 'shortcodes-finder')), esc_url($url)) . '</span>';
 }
 add_filter('admin_footer_text', 'shortcodes_finder_footer_text');

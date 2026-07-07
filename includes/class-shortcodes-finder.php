@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The core plugin class.
  *
@@ -63,7 +64,7 @@ class ShortcodeFinder
         $this->plugin_name = 'shortcodes-finder';
 
         $this->load_dependencies();
-        $this->set_locale();
+        //$this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
     }
@@ -122,12 +123,12 @@ class ShortcodeFinder
      * @since    1.0.0
      * @access   private
      */
-    private function set_locale()
+    /*private function set_locale()
     {
         $plugin_i18n = new Shortcodes_Finder_i18n();
 
         $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
-    }
+    }*/
 
     /**
      * Register all of the hooks related to the admin area functionality
@@ -138,23 +139,20 @@ class ShortcodeFinder
      */
     private function define_admin_hooks()
     {
-      $plugin_admin = new Shortcodes_Finder_Admin($this->get_plugin_name(), $this->get_version());
+        $plugin_admin = new Shortcodes_Finder_Admin($this->get_plugin_name(), $this->get_version());
 
-      $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-      $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
+        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
-      $this->loader->add_action('admin_menu', $plugin_admin, 'management_page');
-	  $this->loader->add_action('admin_init', $plugin_admin, 'load_plugin');
+        $this->loader->add_action('admin_menu', $plugin_admin, 'management_page');
+        $this->loader->add_action('admin_init', $plugin_admin, 'load_plugin');
 
-      // Ajax requests
-      $this->loader->add_action('wp_ajax_shortcodes_finder_content_search_process', $plugin_admin, 'ajax_sf_content_search_process');
-      $this->loader->add_action('wp_ajax_nopriv_shortcodes_finder_content_search_process', $plugin_admin, 'ajax_sf_content_search_process');
+        // Ajax requests
+        $this->loader->add_action('wp_ajax_shortcodes_finder_content_search_process', $plugin_admin, 'ajax_shortcodes_finder_content_search_process');
+        $this->loader->add_action('wp_ajax_shortcodes_finder_unused_search_process', $plugin_admin, 'ajax_shortcodes_finder_unused_search_process');
 
-      $this->loader->add_action('wp_ajax_shortcodes_finder_unused_search_process', $plugin_admin, 'ajax_sf_unused_search_process');
-      $this->loader->add_action('wp_ajax_nopriv_shortcodes_finder_unused_search_process', $plugin_admin, 'ajax_sf_unused_search_process');
-
-      // Notifications
-      //$this->loader->add_action('admin_notices', $plugin_admin, 'sf_admin_notices');
+        // Notifications
+        //$this->loader->add_action('admin_notices', $plugin_admin, 'shortcodes_finder_admin_notices');
     }
 
     /**

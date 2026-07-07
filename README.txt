@@ -1,10 +1,10 @@
 === Shortcodes Finder ===
 Contributors: scribit
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=riccardosormani@gmail.com&item_name=Shortcodes Finder WordPress plugin donation&no_note=0
+Donate link: https://www.paypal.com/donate/?cmd=_donations&business=riccardosormani@gmail.com&item_name=Shortcodes%20Finder%20WordPress%20plugin%20donation&no_note=0
 Tags: shortcode, shortcodes, unused, orphan, search
-Requires at least: 4.0
-Tested up to: 6.6.2
-Stable tag: 1.6.0
+Requires at least: 4.7
+Tested up to: 7.0
+Stable tag: 1.6.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -46,8 +46,19 @@ From WordPress.org
 
 == Changelog ==
 
+= 1.6.2 =
+* Security vulnerabilities fixed
+* Improved data escaping
+* Adjusted functions name according to naming conventions
+* Removed explicit query
+
+= 1.6.1 =
+* Fixed blocking error in some cases of unused shortcodes search
+* WordPress 6.8.1 compatibility
+* Minor graphic changes
+
 = 1.6.0 =
-* Search shortcodes in not public custom post types (e.g. Visual composer post types, Divi tempaltes, etc.)
+* Search shortcodes in not public custom post types (e.g. Visual composer post types, Divi templates, etc.)
 * Added results count in search by single shortcode
 * Improved unused shortcodes search
 * Removed some false positives in unused shortocodes page

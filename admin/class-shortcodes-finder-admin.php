@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -66,7 +67,8 @@ class Shortcodes_Finder_Admin
          * class.
          */
 
-        if (isset($_GET['page']) && ($_GET['page'] == SHORTCODES_FINDER_PLUGIN_SLUG)) {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin page gate, no state change.
+        if (isset($_GET['page']) && (sanitize_text_field(wp_unslash($_GET['page'])) == SHORTCODES_FINDER_PLUGIN_SLUG)) {
             wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/shortcodes-finder-admin.css', array(), $this->version, 'all');
         }
     }
@@ -79,31 +81,35 @@ class Shortcodes_Finder_Admin
      */
     public function enqueue_scripts()
     {
-		if (isset($_GET['page']) && ($_GET['page'] == SHORTCODES_FINDER_PLUGIN_SLUG)) {
-			wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/shortcodes-finder-admin.js', array( 'jquery' ), $this->version, false);
+        if (isset($_GET['page']) && ($_GET['page'] == SHORTCODES_FINDER_PLUGIN_SLUG)) {
+            wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/shortcodes-finder-admin.js', array('jquery'), $this->version, false);
 
-			if (isset($_POST['subpage'])) {
-                $_POST['subpage'] = esc_attr($_POST['subpage']);
-				if (($_POST['subpage'] == 'find_content' || $_POST['subpage'] == 'find_unused') && isset($_POST['search_into_content'])) {
-					require_once plugin_dir_path(__FILE__) . '../includes/shortcodes-finder-utils.php';
+            if (
+                isset($_POST['subpage'], $_POST['_wpnonce']) &&
+                wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), SHORTCODES_FINDER_NONCE_ACTION)
+            ) {
+                $subpage = sanitize_text_field(wp_unslash($_POST['subpage']));
+                if (($subpage == 'find_content' || $subpage == 'find_unused') && isset($_POST['search_into_content'])) {
+                    require_once plugin_dir_path(__FILE__) . '../includes/shortcodes-finder-utils.php';
 
-					$post_type = esc_attr($_POST['search_into_content']);
-					$include_not_published = (isset($_POST['include_not_published']) && (esc_attr($_POST['include_not_published']) == 'on'));
-					$posts = sf_get_posts_ids($post_type, $include_not_published);	// Pass the post type
+                    $post_type = sanitize_text_field(wp_unslash($_POST['search_into_content']));
+                    $include_not_published = (isset($_POST['include_not_published']) && (sanitize_text_field(wp_unslash($_POST['include_not_published'])) == 'on'));
+                    $posts = shortcodes_finder_get_posts_ids($post_type, $include_not_published);    // Pass the post type
 
-					wp_localize_script(
-						$this->plugin_name,
-						'ajax_vars',
-						array(
+                    wp_localize_script(
+                        $this->plugin_name,
+                        'ajax_vars',
+                        array(
                             'ajax_url' => admin_url('admin-ajax.php'),
-                            'action' => $_POST['subpage'],
+                            'action' => $subpage,
                             'posts' => $posts,
-                            'post_type' => $post_type   // Mandatory for custom post types
+                            'post_type' => $post_type,   // Mandatory for custom post types
+                            'nonce' => wp_create_nonce(SHORTCODES_FINDER_NONCE_ACTION)
                         )
-					);
-				}
-			}
-		}
+                    );
+                }
+            }
+        }
     }
 
     /**
@@ -121,50 +127,55 @@ class Shortcodes_Finder_Admin
             __('Shortcodes Finder', 'shortcodes-finder'),
             'manage_options',
             SHORTCODES_FINDER_PLUGIN_SLUG,
-            'sf_admin_page_handler'
+            'shortcodes_finder_admin_page_handler'
         );
     }
 
-	/**
+    /**
      * Manage actions on plugin load
      *
      * @since    1.4.3
      * @access   public
      */
-	public function load_plugin()
-	{
-		// Manage redirection after plugin activation
-		// See Wordpress tip: https://developer.wordpress.org/reference/functions/register_activation_hook/
-		if ( is_admin() && get_option( 'activated_plugin' ) == SHORTCODES_FINDER_PLUGIN_SLUG ) {
-			delete_option( 'activated_plugin' );
-			wp_redirect( esc_url( admin_url( 'tools.php?page='. SHORTCODES_FINDER_PLUGIN_SLUG ) ) );
+    public function load_plugin()
+    {
+        // Manage redirection after plugin activation
+        // See Wordpress tip: https://developer.wordpress.org/reference/functions/register_activation_hook/
+        if (is_admin() && get_option('activated_plugin') == SHORTCODES_FINDER_PLUGIN_SLUG) {
+            delete_option('activated_plugin');
+            wp_safe_redirect(esc_url(admin_url('tools.php?page=' . SHORTCODES_FINDER_PLUGIN_SLUG)));
             exit();
-		}
-	}
+        }
+    }
 
     /**
      * Manage ajax call for shortcodes search by content
      *
-     * @since    1.2.9
+     * @since    1.6.2
      * @access   public
      */
-    public function ajax_sf_content_search_process()
+    public function ajax_shortcodes_finder_content_search_process()
     {
+        check_ajax_referer(SHORTCODES_FINDER_NONCE_ACTION, 'nonce');
+
         require_once plugin_dir_path(__FILE__) . 'partials/shortcodes-finder-admin-display.php';
+
+        $post_type = isset($_POST['post_type']) ? sanitize_text_field(wp_unslash($_POST['post_type'])) : '';
+        $posts = isset($_POST['posts']) ? array_map('absint', (array) wp_unslash($_POST['posts'])) : array();
 
         $args = array(
             'posts_per_page' => -1,
             //'post_type' => 'any',
-            'post_type' => $_POST['post_type'],     // For custom post types I have to specify exact slug to retrieve with get_posts function. 
-                                                    // If set to "any" the post with custom type will not be retrieved.
+            'post_type' => $post_type,     // For custom post types I have to specify exact slug to retrieve with get_posts function.
+            // If set to "any" the post with custom type will not be retrieved.
             'post_status' => 'any',
             'orderby' => 'date',
             'order' => 'DESC',
-            'post__in' => $_POST['posts'],
+            'post__in' => $posts,
         );
         $posts = get_posts($args);
 
-        sf_print_contents_shortcodes($posts);
+        shortcodes_finder_print_contents_shortcodes($posts);
 
         die;
     }
@@ -172,26 +183,31 @@ class Shortcodes_Finder_Admin
     /**
      * Manage ajax call for unused shortcodes search
      *
-     * @since    1.2.9
+     * @since    1.6.2
      * @access   public
      */
-    public function ajax_sf_unused_search_process()
+    public function ajax_shortcodes_finder_unused_search_process()
     {
+        check_ajax_referer(SHORTCODES_FINDER_NONCE_ACTION, 'nonce');
+
         require_once plugin_dir_path(__FILE__) . 'partials/shortcodes-finder-admin-display.php';
+
+        $post_type = isset($_POST['post_type']) ? sanitize_text_field(wp_unslash($_POST['post_type'])) : '';
+        $posts = isset($_POST['posts']) ? array_map('absint', (array) wp_unslash($_POST['posts'])) : array();
 
         $args = array(
             'posts_per_page' => -1,
             //'post_type' => 'any',
-            'post_type' => $_POST['post_type'],     // For custom post types I have to specify exact slug to retrieve with get_posts function. 
-                                                    // If set to "any" the post with custom type will not be retrieved.
+            'post_type' => $post_type,     // For custom post types I have to specify exact slug to retrieve with get_posts function.
+            // If set to "any" the post with custom type will not be retrieved.
             'post_status' => 'any',
             'orderby' => 'date',
             'order' => 'DESC',
-            'post__in' => $_POST['posts']
+            'post__in' => $posts
         );
         $posts = get_posts($args);
 
-        sf_get_unused_shortcodes($posts);
+        shortcodes_finder_get_unused_shortcodes($posts);
 
         die;
     }
@@ -199,14 +215,13 @@ class Shortcodes_Finder_Admin
     /**
      * Manage admin notices for admin pages
      *
-     * @since    1.3.0
+     * @since    1.6.2
      * @access   public
      */
-    public function sf_admin_notices()
+    public function shortcodes_finder_admin_notices()
     {
         $current_page = get_current_screen()->base;
         if ('tools_page_shortcodes_finder' == $current_page) {
-
         }
     }
 }
