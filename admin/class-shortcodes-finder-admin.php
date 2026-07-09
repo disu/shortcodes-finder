@@ -158,6 +158,10 @@ class Shortcodes_Finder_Admin
     {
         check_ajax_referer(SHORTCODES_FINDER_NONCE_ACTION, 'nonce');
 
+        if (! current_user_can('manage_options')) {
+            wp_die(-1, 403);
+        }
+
         require_once plugin_dir_path(__FILE__) . 'partials/shortcodes-finder-admin-display.php';
 
         $post_type = isset($_POST['post_type']) ? sanitize_text_field(wp_unslash($_POST['post_type'])) : '';
@@ -189,6 +193,10 @@ class Shortcodes_Finder_Admin
     public function ajax_shortcodes_finder_unused_search_process()
     {
         check_ajax_referer(SHORTCODES_FINDER_NONCE_ACTION, 'nonce');
+
+        if (! current_user_can('manage_options')) {
+            wp_die(-1, 403);
+        }
 
         require_once plugin_dir_path(__FILE__) . 'partials/shortcodes-finder-admin-display.php';
 

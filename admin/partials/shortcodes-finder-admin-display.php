@@ -623,7 +623,7 @@ function shortcodes_finder_admin_page_handler()
 
 																																																							if (
 																																																								isset($_POST['nonce']) &&
-																																																								wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'shortcodes-finder-settings-save')
+																																																								wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'shortcodes-finder-settings-save') && current_user_can('manage_options')
 																																																							) {
 																																																								$res = true;
 
